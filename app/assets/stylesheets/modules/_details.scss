@@ -1,0 +1,27 @@
+*{
+  box-sizing: border-box;
+}
+
+.wrapper{
+  height: 100vh;
+  width: 100vw;
+  .header{
+    height: 110px;
+    width: 100%;
+    background-color: lightgreen;
+    background-size: cover;
+    margin: 0 auto;
+    &__title{
+      text-align: center;
+      font-family: 'Caveat', cursive;
+      font-size: 67px;
+      line-height: 110px;
+      color: lightslategrey;
+    }
+  }
+
+  .graph{
+    height: calc(100vh - 110px);
+    width: 100%;
+  }
+}
