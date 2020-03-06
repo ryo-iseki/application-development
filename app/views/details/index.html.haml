@@ -1,5 +1,7 @@
 .wrapper
   .header
+    = link_to edit_user_path(current_user), class: "header__icon" do
+      = icon 'fas', 'user-cog fa-2x'
     .header__title
       Sally
   = render "middle-box"

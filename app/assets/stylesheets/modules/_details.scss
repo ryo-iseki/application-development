@@ -17,8 +17,13 @@
     background-color: limegreen;
     background-size: cover;
     margin: 0 auto;
+    display: flex;
+    &__icon{
+      line-height: 110px;
+      margin-left: 50px;
+    }
     &__title{
-      text-align: center;
+      margin-left: 600px;
       font-family: 'Caveat', cursive;
       font-size: 67px;
       line-height: 110px;
@@ -46,6 +51,7 @@
         line-height: 80px;
         margin-top: 30px;
         margin: 40px auto;
+        animation: Flash 2s infinite;
       }
       &__btn2{
         display: block;
@@ -57,6 +63,7 @@
         text-align: center;
         line-height: 80px;
         margin: 60px auto;
+        animation: Flash 2s infinite;
       }
       &__btn3{
         display: block;
@@ -68,6 +75,12 @@
         text-align: center;
         line-height: 80px;
         margin: 60px auto;
+        animation: Flash 2s infinite;
+      }
+      @keyframes Flash {
+        50% {
+          box-shadow: 0px 0px 40px 0px rgb(103, 189, 223);
+        }
       }
 
     }
@@ -75,8 +88,8 @@
       margin: 0 auto;
       background-color: white;
       width: calc(100% - 200px);
-      margin-top: 50px;
-      margin-left: 100px;
+      margin-top: 30px;
+      margin-left: 200px;
     }
   }
 }
