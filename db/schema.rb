@@ -10,14 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_015109) do
+ActiveRecord::Schema.define(version: 2020_03_10_072608) do
 
-  create_table "details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
-    t.datetime "start_time"
+  create_table "incomes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "money", null: false
+    t.text "memo"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "spending_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "spending_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spendings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "money", null: false
+    t.text "memo", null: false
+    t.bigint "user_id"
+    t.datetime "start_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "sort"
+    t.index ["user_id"], name: "index_spendings_on_user_id"
+  end
+
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name"], name: "index_users_on_name", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "spendings", "users"
 end

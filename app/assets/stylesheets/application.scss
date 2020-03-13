@@ -12,10 +12,16 @@
  *= require simple_calendar
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  */
 
 
 @import "reset";
-@import "modules/details";
+@import "modules/spendings";
+@import "modules/incomes";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "modules/user";
+
+
+

@@ -1,0 +1,15 @@
+.wrapper
+  .header
+    = link_to edit_user_path(current_user) do
+      = icon 'fas', 'user-cog fa-2x', class: "header__icon"
+    .header__title
+      Sally
+    .header__link
+      = link_to "/users/#{current_user.id}", class: "header__link__name" do
+        = current_user.name
+      = link_to new_spending_path(@spending), class: "header__link__spending" do
+        支出登録
+      = link_to new_income_path(@income), class: "header__link__income" do
+        収入登録
+        
+  = render "middle-box"

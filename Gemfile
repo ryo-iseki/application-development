@@ -69,5 +69,9 @@ gem 'chartkick'
 gem 'chartable'
 gem 'simple_calendar', '~> 2.0'
 gem 'devise'
-
+gem 'pry-rails'
+gem 'jquery-rails', '4.3.3'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'groupdate'
 
