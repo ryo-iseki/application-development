@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def edit
   end
 
@@ -8,6 +9,13 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def show
+    @spendings = current_user.spendings
+    @incomes = current_user.incomes
+    @spending = @spendings.group("MONTH(created_at)").sum(:money)
+    @income = @incomes.group("MONTH(created_at)").sum(:money)
   end
 
   private

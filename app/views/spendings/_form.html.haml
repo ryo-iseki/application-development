@@ -1,0 +1,18 @@
+= form_with(model: @spending, local: true) do |f|
+  .main
+    .main__title
+      支出登録
+    .main1
+      .main1__left
+        値段:
+      = f.text_field :money, class: 'main1__price-box', placeholder: '金額を入力してください'
+    .main2
+      .main2__left
+        種類:
+      = f.select :sort, [ ["食費","食費"], ["日用品", "日用品"], ["交通費", "交通費" ] ,["衣服", "衣服"], ["趣味", "趣味"], ["その他", "その他"] ], prompt: "カテゴリー", class: 'main2__category-box'
+    .main3
+      .main3__left
+        メモ:
+      = f.text_field :memo, class: 'main3__memo-box'
+    .main4
+      = f.submit '保存', class: 'main4__submit'

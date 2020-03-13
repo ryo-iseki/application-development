@@ -1,0 +1,73 @@
+.header
+  .header__detail
+    収支一覧
+  = link_to root_path, class: "header__link" do
+    トップページへ戻る
+.detail-box
+  .detail-box__top
+    .detail-box__top__spend
+      今月の出費：
+      - @spending.each do |spend|
+        = spend[1]
+        円
+    .detail-box__top__income
+      今月の収入：
+      - @income.each do |income|
+        = income[1]
+        円
+  .detail-box__middle
+    - @spending.zip(@income) do |spend, income|
+      - total = income[1] - spend[1]
+      今月の残高は
+      = total
+      円です。
+  .detail-box__file
+    .detail-box__file__letter1
+      .detail-box__file__letter1__title
+        支出一覧
+      .big-box
+        - @spendings.each do |spending|
+          .spending-box
+            .btn-box
+              = link_to edit_spending_path(spending), class:"edit-btn" do
+                編集
+              = link_to spending_path(spending), class:"delete-btn", method: :delete do
+                削除
+            .date-box
+              = spending.created_at.strftime("%Y-%m-%d %H:%M")
+            .spending-box__sort
+              カテゴリー：
+              = spending.sort
+            .spending-box__bottom
+              .spending-box__bottom__memo
+                メモ：
+                = spending.memo
+              .spending-box__bottom__money
+                金額：
+                = spending.money
+                円
+
+    .detail-box__file__letter2
+      .detail-box__file__letter2__title
+        収入一覧
+      .big-box
+        - @incomes.each do |income|
+          .income-box
+            .btn-box
+              = link_to edit_income_path(income), class:"edit-btn" do
+                編集
+              = link_to income_path(income), class:"delete-btn", method: :delete do
+                削除
+            .date-box
+              = income.created_at.strftime("%Y-%m-%d %H:%M")
+            .income-box__bottom
+              .income-box__bottom__memo
+                メモ：
+                = income.memo
+              .income-box__bottom__money
+                金額：
+                = income.money
+                円
+
+
+    

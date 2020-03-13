@@ -1,0 +1,14 @@
+= form_with(model: @income, local: true) do |f|
+  .main
+    .main__title
+      収入登録
+    .main1
+      .main1__left
+        金額:
+      = f.text_field :money, class: 'main1__price-box', placeholder: '金額を入力してください'
+    .main2
+      .main2__left
+        メモ:
+      = f.text_field :memo, class: 'main2__memo-box'
+    .main3
+      = f.submit '保存', class: 'main3__submit'

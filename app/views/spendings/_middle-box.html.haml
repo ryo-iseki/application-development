@@ -1,0 +1,25 @@
+.main
+  .graph
+    .graph__title
+      今月の出費(種類別)
+      ＊縦軸は値段です。
+    .graph__box
+      = column_chart(@spending)
+  
+  .calender
+    = month_calendar events: @spendings do |date,spends|
+      = date.day
+      - spends.each do |spend|
+        =  spend
+      
+
+
+
+
+          
+
+      
+
+      
+      
+    
