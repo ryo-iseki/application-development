@@ -34,7 +34,7 @@
               = link_to spending_path(spending), class:"delete-btn", method: :delete do
                 削除
             .date-box
-              = spending.created_at.strftime("%Y-%m-%d %H:%M")
+              = spending.created_at.strftime("%Y年%m月%d日 %H時%M分")
             .spending-box__sort
               カテゴリー：
               = spending.sort
@@ -59,7 +59,7 @@
               = link_to income_path(income), class:"delete-btn", method: :delete do
                 削除
             .date-box
-              = income.created_at.strftime("%Y-%m-%d %H:%M")
+              = income.created_at.strftime("%Y年%m月%d日 %H時%M分")
             .income-box__bottom
               .income-box__bottom__memo
                 メモ：

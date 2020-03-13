@@ -1,8 +1,7 @@
 class SpendingsController < ApplicationController
   def index
     @spendings = Spending.all
-    @spending = Spending.group(:sort).sum(:money)
-    @spend = current_user.spendings.group_by_day_of_month(:created_at).sum(:money)
+    @spending = current_user.spendings.group(:sort).sum(:money)
   end
 
   def new

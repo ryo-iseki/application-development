@@ -5,12 +5,14 @@
       ＊縦軸は値段です。
     .graph__box
       = column_chart(@spending)
-  
   .calender
-    = month_calendar events: @spendings do |date,spends|
+    = month_calendar(attribute: :created_at, events: @spendings, number_of_month: 1) do |date,spends|
       = date.day
       - spends.each do |spend|
-        =  spend
+        .money-show
+          = spend.sort
+          = spend.money
+          円
       
 
 
